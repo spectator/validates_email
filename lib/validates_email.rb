@@ -9,7 +9,7 @@ class EmailValidator < ActiveModel::EachValidator
     # local part max is 64 chars, domain part max is 255 chars
     # TODO: should this decode escaped entities before counting?
     begin
-      domain, local = email.reverse.split('@', 2)
+      local, domain = email.split('@', 2)
     rescue
       return false
     end
