@@ -4,7 +4,7 @@ validates_email is a Rails 3 plugin that validates email addresses against RFC 2
 
 == Installation
 
-rails plugin install git://github.com/spectator/validates_email.git
+  rails plugin install git://github.com/spectator/validates_email.git
 
 == Usage
 
