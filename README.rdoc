@@ -29,3 +29,7 @@ The unit tests for this plugin use an in-memory sqlite3 database.
 == Credits
 
 Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github.com/alexdunae/validates_email_format_of/) and adopted for Rails 3, so pass all beers to him.
+
+== Notes
+
+Tested under ruby 1.9.3dev (2010-05-08 trunk 27674)
