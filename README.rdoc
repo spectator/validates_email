@@ -32,4 +32,4 @@ Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github
 
 == Notes
 
-Tested under ruby 1.9.3dev (2010-05-08 trunk 27674)
+Tested under ruby 1.9.3dev (2010-05-08 trunk 27674) and Rails Edge
