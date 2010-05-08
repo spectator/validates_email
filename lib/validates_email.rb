@@ -11,7 +11,7 @@ class EmailValidator < ActiveModel::EachValidator
     begin
       domain, local = email.reverse.split('@', 2)
     rescue
-      false
+      return false
     end
 
     email =~ Regex and not email =~ /\.\./ and domain.length <= 255 and local.length <= 64
