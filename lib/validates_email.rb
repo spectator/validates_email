@@ -19,7 +19,7 @@ class EmailValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
     unless validates_email_format(value)
-      record.errors[attribute] << (options[:message] || I18n.t(:invalid, :scope => [:activerecord, :errors, :messages]))
+      record.errors[attribute] << (options[:message] || I18n.t(:invalid, :scope => [:activerecord, :messages]))
     end
   end
 
