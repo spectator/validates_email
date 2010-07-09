@@ -17,9 +17,23 @@ class EmailValidator < ActiveModel::EachValidator
     email =~ Regex and not email =~ /\.\./ and domain.length <= 255 and local.length <= 64
   end
 
+  def validates_email_domain(email, options)
+    require 'resolv'
+    a_fallback = options.is_a?(Hash) ? options[:a_fallback] : nil
+    domain = email.match(/\@(.+)/)[1]
+    Resolv::DNS.open do |dns|
+      @mx = dns.getresources(domain, Resolv::DNS::Resource::IN::MX)
+      @mx.push(*dns.getresources(domain, Resolv::DNS::Resource::IN::A)) if a_fallback
+    end
+    @mx.size > 0 ? true : false
+  end
+
   def validate_each(record, attribute, value)
     unless validates_email_format(value)
-      record.errors[attribute] << (options[:message] || I18n.t(:invalid, :scope => [:activerecord, :messages]))
+      record.errors[attribute] << (options[:message] || I18n.t(:invalid, :scope => [:activerecord, :errors, :messages]))
+    end
+    unless options[:mx] && validates_email_domain(value, options[:mx])
+      record.errors[attribute] << (options[:mx_message] || I18n.t(:mx_invalid, :scope => [:activerecord, :errors, :messages]))
     end
   end
 
