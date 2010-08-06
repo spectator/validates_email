@@ -26,7 +26,8 @@ Gem::Specification.new do |s|
      "test/database.yml",
      "test/schema.rb",
      "test/test_helper.rb",
-     "test/validates_email_test.rb"
+     "test/validates_email_test.rb",
+     "validates_email.gemspec"
   ]
   s.homepage = %q{http://github.com/spectator/validates_email}
   s.rdoc_options = ["--charset=UTF-8"]
