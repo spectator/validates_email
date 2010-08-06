@@ -4,7 +4,7 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "validates_email"
+    gem.name = "spectator-validates_email"
     gem.summary = %Q{Gem to validate email addresses for Rails 3}
     gem.description = %Q{validates_email is a Rails 3 plugin that validates email addresses against RFC 2822 and RFC 3696}
     gem.email = "yury.velikanau@gmail.com"
