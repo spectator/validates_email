@@ -32,7 +32,7 @@ class EmailValidator < ActiveModel::EachValidator
     unless validates_email_format(value)
       record.errors[attribute] << (options[:message] || I18n.t(:invalid, :scope => [:activerecord, :errors, :messages]))
     end
-    unless options[:mx] && validates_email_domain(value, options[:mx])
+    if options[:mx] && !validates_email_domain(value, options[:mx])
       record.errors[attribute] << (options[:mx_message] || I18n.t(:mx_invalid, :scope => [:activerecord, :errors, :messages]))
     end
   end

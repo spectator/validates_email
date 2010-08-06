@@ -7,6 +7,16 @@ class ValidatesEmailTest < ActiveSupport::TestCase
     validates :email, :email => { :message => 'fails with custom message' }
   end
 
+  class MxRecord < ActiveRecord::Base
+    validates :email, :email => { :mx => true,
+                                  :mx_message => 'fails with custom mx message' }
+  end
+
+  class MxFallback < ActiveRecord::Base
+    validates :email, :email => { :mx => { :a_fallback => true },
+                                  :mx_message => 'fails with custom mx message' }
+  end
+
   def test_should_allow_valid_email_addresses
     [
       'valid@example.com',
@@ -104,6 +114,26 @@ class ValidatesEmailTest < ActiveSupport::TestCase
     save_fails(p)
     # Object.errors[:field] returns array now
     assert_equal ['fails with custom message'], p.errors[:email]
+  end
+
+  def test_should_validate_email_with_mx
+    valid_email = 'test@gmail.com'
+    p = MxRecord.new(:email => valid_email)
+    save_passes(p, valid_email)
+
+    invalid_email = 'test@example.com'
+    p = MxRecord.new(:email => invalid_email)
+    save_fails(p, invalid_email)
+  end
+
+  def test_should_validate_with_mx_fallback
+    valid_email = 'test@gmail.com'
+    p = MxFallback.new(:email => valid_email)
+    save_passes(p, valid_email)
+
+    invalid_email = 'test@example.com'
+    p = MxFallback.new(:email => invalid_email)
+    save_passes(p, invalid_email)
   end
 
   protected
