@@ -20,6 +20,18 @@ Also, you can pass your custom error message, otherwise it will use ActiveRecord
     validates :field, :email => { :message => 'is not an email address' }
   end
 
+If you like to check MX Records for email, you can use <tt>:mx</tt> option.
+
+  class User < ActiveRecord::Base
+    validates :field, :email => { :mx => true }
+  end
+
+And if you like to check MX Records with fallback to A record, use <tt>:a_fallback</tt> option.
+
+  class User < ActiveRecord::Base
+    validates :field, :email => { :mx => { :a_fallback => true } }
+  end
+
 == Testing
 
 To execute unit tests run <tt>rake test</tt> within plugin folder.
@@ -30,6 +42,10 @@ The unit tests for this plugin use an in-memory sqlite3 database.
 
 Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github.com/alexdunae/validates_email_format_of/) and adopted for Rails 3, so pass all beers to him.
 
+== Contributors
+
+Petr Blaho
+
 == Notes
 
-Tested under ruby 1.9.3dev (2010-05-08 trunk 27674) and Rails Edge
+Tested under ruby 1.9.2-rc1 and Rails 3 Edge
