@@ -1,1 +1,13 @@
+## MAC OS
+.DS_Store
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## PROJECT::GENERAL
+rdoc
+*.gem
+
+## PROJECT::SPECIFIC
 test/debug.log
