@@ -10,7 +10,7 @@ class EmailValidator < ActiveModel::EachValidator
     # TODO: should this decode escaped entities before counting?
     begin
       local, domain = email.split('@', 2)
-    rescue
+    rescue NoMethodError
       return false
     end
 
