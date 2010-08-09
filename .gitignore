@@ -6,6 +6,7 @@
 tmtags
 
 ## PROJECT::GENERAL
+.rvmrc
 pkg
 rdoc
 *.gem
