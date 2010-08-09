@@ -19,7 +19,7 @@ class EmailValidator < ActiveModel::EachValidator
 
   def validates_email_domain(email, options)
     require 'resolv'
-    a_fallback = options.is_a?(Hash) ? options[:a_fallback] : nil
+    a_fallback = options.is_a?(Hash) ? options[:a_fallback] : false
     domain = email.match(/\@(.+)/)[1]
     Resolv::DNS.open do |dns|
       @mx = dns.getresources(domain, Resolv::DNS::Resource::IN::MX)
