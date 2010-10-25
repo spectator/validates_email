@@ -48,8 +48,8 @@ Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github
 
 == Contributors
 
-Petr Blaho
-Christian Eichhorn
+* Petr Blaho
+* Christian Eichhorn
 
 == Notes
 
