@@ -136,6 +136,14 @@ class ValidatesEmailTest < ActiveSupport::TestCase
     save_passes(p, invalid_email)
   end
 
+  def test_should_not_validate_mx_with_invalid_email
+    invalid_email = 'testexample.com'
+    assert_nothing_raised do
+      p = MxFallback.new(:email => invalid_email)
+      save_fails(p, invalid_email)
+    end
+  end
+
   protected
 
   def create_person(params)
