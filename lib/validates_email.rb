@@ -29,11 +29,14 @@ class EmailValidator < ActiveModel::EachValidator
   end
 
   def validate_each(record, attribute, value)
-    unless validates_email_format(value)
+    if validates_email_format(value)
+      # only test the mx if the email format is valid first
+      # (missing @ raises exception in validates_email_domain)
+      if options[:mx] && !validates_email_domain(value, options[:mx])
+        record.errors[attribute] << (options[:mx_message] || I18n.t(:mx_invalid, :scope => [:activerecord, :errors, :messages]))
+      end
+    else
       record.errors[attribute] << (options[:message] || I18n.t(:invalid, :scope => [:activerecord, :errors, :messages]))
-    end
-    if options[:mx] && !validates_email_domain(value, options[:mx])
-      record.errors[attribute] << (options[:mx_message] || I18n.t(:mx_invalid, :scope => [:activerecord, :errors, :messages]))
     end
   end
 
