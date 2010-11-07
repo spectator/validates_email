@@ -1,15 +1,8 @@
-## MAC OS
 .DS_Store
-
-## TEXTMATE
 *.tmproj
 tmtags
-
-## PROJECT::GENERAL
 .rvmrc
 pkg
-rdoc
+.yardoc
+doc
 *.gem
-
-## PROJECT::SPECIFIC
-test/debug.log
