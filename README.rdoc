@@ -65,7 +65,7 @@ Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github
 
 == Testing
 
-To execute unit tests run <tt>rake</tt> within plugin folder.
+To execute unit tests run <tt>rake spec</tt> within plugin folder.
 
 The unit tests for this plugin use an in-memory sqlite3 database.
 
