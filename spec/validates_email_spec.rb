@@ -27,7 +27,9 @@ describe EmailValidator do
         '!def!xyz%abc@example.com',
         '_somename@example.com',
         # apostrophes
-        "test'test@example.com"
+        "test'test@example.com",
+        # .sch.uk
+        'valid@example.w-dash.sch.uk'
       ].each do |email|
         person = Person.new(:primary_email => email)
         person.should be_valid(email)

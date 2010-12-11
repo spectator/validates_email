@@ -6,7 +6,7 @@ class EmailValidator < ActiveModel::EachValidator
   LocalPartSpecialChars = Regexp.escape('!#$%&\'*-/=?+-^_`{|}~')
   LocalPartUnquoted = '(([[:alnum:]' + LocalPartSpecialChars + ']+[\.\+]+))*[[:alnum:]' + LocalPartSpecialChars + '+]+'
   LocalPartQuoted = '\"(([[:alnum:]' + LocalPartSpecialChars + '\.\+]*|(\\\\[\x00-\xFF]))*)\"'
-  Regex = Regexp.new('^((' + LocalPartUnquoted + ')|(' + LocalPartQuoted + ')+)@(((\w+\-+[^_])|(\w+\.[^_]))*([a-z0-9-]{1,63})\.[a-z]{2,6}$)', Regexp::EXTENDED | Regexp::IGNORECASE, 'n')
+  Regex = Regexp.new('^((' + LocalPartUnquoted + ')|(' + LocalPartQuoted + ')+)@(((\w+\-+[^_])|(\w+\.[^_]))*([a-z0-9-]{1,63})\.[a-z]{2,6}(?:\.[a-z]{2,6})?$)', Regexp::EXTENDED | Regexp::IGNORECASE, 'n')
 
   # Validates email address.
   # If MX fallback was also requested, it will check if email is valid
