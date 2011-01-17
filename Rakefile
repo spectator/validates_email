@@ -9,9 +9,7 @@ Rspec::Core::RakeTask.new(:spec)
 namespace :ci do
   desc "Run CI tasks"
   task :run do
-    Bundler.with_clean_env do
-      sh "bundle install"
-      sh "bundle exec rake spec"
-    end
+    sh "bundle install"
+    sh "bundle exec rake spec"
   end
 end
