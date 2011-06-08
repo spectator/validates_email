@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'spec_helper'
 
 describe EmailValidator do
@@ -67,11 +68,19 @@ describe EmailValidator do
         'invalid@example.c',
         'invali d@example.com',
         'invalidexample.com',
-        'invalid@example.'
+        'invalid@example.',
+        'чебурашка@kremlin.ru'
       ].each do |email|
         person = Person.new(:primary_email => email)
         person.should_not be_valid(email)
       end
+    end
+
+    it "doesn't raise exception for emails with UTF-8 characters" do
+      person = Person.new(:primary_email => 'чебурашка@kremlin.ru')
+      lambda {
+        person.valid?
+      }.should_not raise_error(Encoding::CompatibilityError)
     end
 
     # From http://tools.ietf.org/html/rfc3696, page 5
