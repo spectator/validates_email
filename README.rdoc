@@ -55,6 +55,7 @@ Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github
 
 * Petr Blaho
 * Christian Eichhorn
+* Alexander Zubkov
 
 == How to contribute
 
