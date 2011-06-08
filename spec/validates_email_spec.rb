@@ -1,12 +1,6 @@
 # encoding: utf-8
 require 'spec_helper'
 
-if RUBY_VERSION.to_f < 1.9
-  class Encoding
-    class CompatibilityError < StandardError; end
-  end
-end
-
 describe EmailValidator do
 
   context "w/o mx fallback" do
