@@ -52,8 +52,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (~> 3.0.0)
-  activemodel (~> 3.0.0)
   bundler (~> 1.0.0)
   rake (~> 0.8.7)
   rspec (~> 2.0.0)
