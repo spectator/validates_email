@@ -44,7 +44,11 @@ class EmailValidator < ActiveModel::EachValidator
       return false
     end
 
-    email =~ Regex and not email =~ /\.\./ and domain.length <= 255 and local.length <= 64
+    begin
+      email =~ Regex and not email =~ /\.\./ and domain.length <= 255 and local.length <= 64
+    rescue Encoding::CompatibilityError
+      return false
+    end
   end
 
   # Checks email is its domain is valid. Fallbacks to A record if requested.
