@@ -80,7 +80,7 @@ describe EmailValidator do
       person = Person.new(:primary_email => 'чебурашка@kremlin.ru')
       lambda {
         person.valid?
-      }.should_not raise_error(Encoding::CompatibilityError)
+      }.should_not raise_error(EmailValidator::Encoding::CompatibilityError)
     end
 
     # From http://tools.ietf.org/html/rfc3696, page 5

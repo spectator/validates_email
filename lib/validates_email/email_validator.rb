@@ -2,6 +2,9 @@
 # validation mechanism.
 #
 class EmailValidator < ActiveModel::EachValidator
+  class Encoding
+    class CompatibilityError < StandardError; end
+  end if RUBY_VERSION.to_f < 1.9
 
   LocalPartSpecialChars = Regexp.escape('!#$%&\'*-/=?+-^_`{|}~')
   LocalPartUnquoted = '(([[:alnum:]' + LocalPartSpecialChars + ']+[\.\+]+))*[[:alnum:]' + LocalPartSpecialChars + '+]+'
