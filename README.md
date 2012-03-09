@@ -87,6 +87,7 @@ Notes
 -----
 
 Compatible with following ruby versions:
+
 * Ruby 1.8.7
 * Ruby 1.9.2
 * Ruby 1.9.3
