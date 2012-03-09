@@ -1,4 +1,8 @@
-= validates_email
+[![Build
+Status](https://secure.travis-ci.org/spectator/validates_email.png?branch=master)](http://travis-ci.org/spectator/validates_email)
+[![Dependency
+Status](https://gemnasium.com/spectator/validates_email.png?travis)](https://gemnasium.com/spectator/validates_email)
+
 validates_email
 ===============
 
