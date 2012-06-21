@@ -30,7 +30,13 @@ describe EmailValidator do
         # apostrophes
         "test'test@example.com",
         # .sch.uk
-        'valid@example.w-dash.sch.uk'
+        'valid@example.w-dash.sch.uk',
+        # extra tests for an updated regex expression
+        'miss@g-c.demon.co.uk',
+        'niceandsimple@example.com',
+        'simplewithsymbol@example.com',
+        'less.common@example.com',
+        'a.little.more.unusual@dept.example.com',
       ].each do |email|
         person = Person.new(:primary_email => email)
         person.should be_valid(email)
@@ -69,7 +75,19 @@ describe EmailValidator do
         'invali d@example.com',
         'invalidexample.com',
         'invalid@example.',
-        'чебурашка@kremlin.ru'
+        'чебурашка@kremlin.ru',
+        # adding extra invalid emails for the new regex expression
+        'Abc.example.com',
+        'Abc.@example.com',
+        'Abc..123@example.com',
+        'A@b@c@example.com',
+        %w(a"b(c)d,e:f;g<h>i[j\k]l@example.com),
+        %w(just"not"right@example.com),
+        %w(this is"not\allowed@example.com),
+        %w(this\ still\"not\\allowed@example.com),
+        'blah@.....com',
+        %w(()<>[]:,;@\\\"!#$%&'*+-/=?^_`{}| ~  ? ^_`{}|~.a@example.org),
+        'joe;blogs:55@example.com'
       ].each do |email|
         person = Person.new(:primary_email => email)
         person.should_not be_valid(email)
