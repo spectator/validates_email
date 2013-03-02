@@ -86,8 +86,15 @@ The unit tests for this plugin use an in-memory sqlite3 database.
 Notes
 -----
 
-Compatible with following ruby versions:
+Compatible with the following ruby versions:
 
 * Ruby 1.8.7
-* Ruby 1.9.2
 * Ruby 1.9.3
+* Ruby 2.0.0
+
+Compatible with the following Rails versions:
+
+* Rails 3.0.x
+* Rails 3.1.x
+* Rails 3.2.1
+* Rails 4 beta 1
