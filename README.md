@@ -6,7 +6,7 @@ Status](https://gemnasium.com/spectator/validates_email.png?travis)](https://gem
 validates_email
 ===============
 
-validates_email is a Rails 3 plugin that validates email addresses against RFC 2822 and RFC 3696
+validates_email is a Rails plugin that validates email addresses against RFC 2822 and RFC 3696
 
 Installation
 ------------
@@ -24,7 +24,7 @@ Usage
       validates :primary_email, :email => true
     end
 
-As well as any other Rails 3 validation this one has the same triggers, such as `:on`, `:if`, `:unless`, `:allow_blank`, and `:allow_nil`.
+As well as any other Rails validation this one has the same triggers, such as `:on`, `:if`, `:unless`, `:allow_blank`, and `:allow_nil`.
 
 Also, you can pass your own custom error message.
 
@@ -59,7 +59,7 @@ If do check MX Records, then you have to specify your own error message or add i
 Credits
 -------
 
-Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github.com/alexdunae/validates_email_format_of/) and adopted for Rails 3, so pass all beers to him.
+Most of the code were taken from Alex Dunae (dunae.ca) plugin (see http://github.com/alexdunae/validates_email_format_of/) and adopted for Rails 3 playing around with Rails 3 beta, so pass all beers to him.
 
 Contributors
 ------------
