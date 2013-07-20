@@ -1,3 +1,5 @@
+[![Gem
+Version](https://badge.fury.io/rb/spectator-validates_email.png)](http://badge.fury.io/rb/spectator-validates_email)
 [![Build
 Status](https://secure.travis-ci.org/spectator/validates_email.png?branch=master)](http://travis-ci.org/spectator/validates_email)
 [![Dependency
