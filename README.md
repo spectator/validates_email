@@ -17,13 +17,13 @@ Installation
 
 or
 
-    gem 'spectator-validates_email', :require => 'validates_email'
+    gem 'spectator-validates_email', require: 'validates_email'
 
 Usage
 -----
 
     class User < ActiveRecord::Base
-      validates :primary_email, :email => true
+      validates :primary_email, email: true
     end
 
 As well as any other Rails validation this one has the same triggers, such as `:on`, `:if`, `:unless`, `:allow_blank`, and `:allow_nil`.
@@ -31,19 +31,19 @@ As well as any other Rails validation this one has the same triggers, such as `:
 Also, you can pass your own custom error message.
 
     class User < ActiveRecord::Base
-      validates :primary_email, :email => { :message => 'is not an email address' }
+      validates :primary_email, email: { message: 'is not an email address' }
     end
 
 If you like to check MX Records for email, you can use `:mx` option.
 
     class User < ActiveRecord::Base
-      validates :primary_email, :email => { :mx => true }
+      validates :primary_email, email: { mx: true }
     end
 
 And if you like to check MX Records with fallback to A record, use `:a_fallback` option.
 
     class User < ActiveRecord::Base
-      validates :primary_email, :email => { :mx => { :a_fallback => true } }
+      validates :primary_email, email: { mx: { a_fallback: true } }
     end
 
 I18n
@@ -69,6 +69,7 @@ Contributors
 * Petr Blaho
 * Christian Eichhorn
 * Alexander Zubkov
+* Daniel Naves de Carvalho
 
 How to contribute
 -----------------
@@ -90,13 +91,14 @@ Notes
 
 Compatible with the following ruby versions:
 
-* Ruby 1.8.7
-* Ruby 1.9.3
-* Ruby 2.0.0
+* Ruby 2.2.X
+* Ruby 2.3.X
+* Ruby 2.4.X
+* Ruby 2.5.x
 
 Compatible with the following Rails versions:
 
-* Rails 3.0.x
-* Rails 3.1.x
-* Rails 3.2.1
-* Rails 4 beta 1
+* Rails 4.2X
+* Rails 5.0.X
+* Rails 5.1.X
+* Rails 5.2.X

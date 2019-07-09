@@ -1,10 +1,7 @@
-# Email validation class which uses Rails 3 ActiveModel
+# Email validation class which uses Rails 4 ActiveModel
 # validation mechanism.
 #
 class EmailValidator < ActiveModel::EachValidator
-  class Encoding
-    class CompatibilityError < StandardError; end
-  end if RUBY_VERSION.to_f < 1.9
 
   LocalPartSpecialChars = Regexp.escape('!#$%&\'*-/=?+-^_`{|}~')
   LocalPartUnquoted = '(([[:alnum:]' + LocalPartSpecialChars + ']+[\.\+]+))*[[:alnum:]' + LocalPartSpecialChars + '+]+'
@@ -23,10 +20,10 @@ class EmailValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     if validates_email_format(value)
       if options[:mx] && !validates_email_domain(value, options[:mx])
-        record.errors[attribute] << (options[:mx_message] || I18n.t(:mx_invalid, :scope => [:activerecord, :errors, :messages]))
+        record.errors.add(attribute, (options[:mx_message] || I18n.t(:mx_invalid, scope: [:activerecord, :errors, :messages])))
       end
     else
-      record.errors[attribute] << (options[:message] || I18n.t(:invalid, :scope => [:activerecord, :errors, :messages]))
+      record.errors.add(attribute, (options[:message] || I18n.t(:invalid, scope: [:activerecord, :errors, :messages])))
     end
   end
 

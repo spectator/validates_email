@@ -80,7 +80,7 @@ describe EmailValidator do
       person = Person.new(:primary_email => 'чебурашка@kremlin.ru')
       lambda {
         person.valid?
-      }.should_not raise_error(EmailValidator::Encoding::CompatibilityError)
+      }.should_not raise_error(Encoding::CompatibilityError)
     end
 
     # From http://tools.ietf.org/html/rfc3696, page 5
@@ -159,4 +159,14 @@ describe EmailValidator do
     end
   end
 
+  if ActiveModel::VERSION::MAJOR >= 5
+    context "w/ details" do
+      it "allows error message" do
+        email = "example.com"
+        person = PersonMessage.new(:primary_email => email)
+        person.should_not be_valid(email)
+        person.errors.details[:primary_email].should eql([{:error=>"fails with custom message"}])
+      end
+    end
+  end
 end
