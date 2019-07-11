@@ -91,14 +91,14 @@ Notes
 
 Compatible with the following ruby versions:
 
-* Ruby 2.2.X
-* Ruby 2.3.X
-* Ruby 2.4.X
+* Ruby 2.2.x
+* Ruby 2.3.x
+* Ruby 2.4.x
 * Ruby 2.5.x
 
 Compatible with the following Rails versions:
 
-* Rails 4.2X
-* Rails 5.0.X
-* Rails 5.1.X
-* Rails 5.2.X
+* Rails 4.2.x
+* Rails 5.0.x
+* Rails 5.1.x
+* Rails 5.2.x
