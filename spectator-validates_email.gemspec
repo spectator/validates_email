@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.files        = Dir["{lib}/**/*.rb", "MIT-LICENSE", "*.rdoc"]
   s.require_path = 'lib'
 
-  s.add_dependency "activemodel", ">= 3.0.0"
+  s.add_dependency "activemodel", ">= 4.2.0"
 end
