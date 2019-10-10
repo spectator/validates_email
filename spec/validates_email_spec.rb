@@ -30,7 +30,9 @@ describe EmailValidator do
         # apostrophes
         "test'test@example.com",
         # .sch.uk
-        'valid@example.w-dash.sch.uk'
+        'valid@example.w-dash.sch.uk',
+        # long TLD
+        'valid@valid.helsinki'
       ].each do |email|
         person = Person.new(:primary_email => email)
         person.should be_valid(email)
