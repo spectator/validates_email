@@ -70,6 +70,7 @@ Contributors
 * Christian Eichhorn
 * Alexander Zubkov
 * Daniel Naves de Carvalho
+* Aidan Coyle
 
 How to contribute
 -----------------
